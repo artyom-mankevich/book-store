@@ -1,5 +1,8 @@
+import re
+
 from django.contrib import messages
-from django.contrib.auth import login
+from django.contrib.auth import login, get_user_model
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 from .forms import CustomUserCreationForm
@@ -19,3 +22,13 @@ def register(request):
     else:
         form = CustomUserCreationForm()
     return render(request, 'users/register.html', {'form': form})
+
+
+def check_username(request):
+    username = request.POST.get('username')
+    if not re.match("^[a-z0-9_]{3,30}$", username):
+        return HttpResponse("<div id='username-errors'></div>")
+    if get_user_model().objects.filter(username=username).exists():
+        return HttpResponse("<div id='username-errors' class='invalid'>This username already exists</div>")
+    else:
+        return HttpResponse("<div id='username-errors' class='valid'>This username is available</div>")
