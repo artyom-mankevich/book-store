@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block extra_head_content %}
+        {{ block.super }}
+        <title>{{ book.title }}</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'products/css/products.css' %}">
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+    <div class="col-md-8 offset-2">
+        <div class="border bg-light rounded p-1" id="productPage">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="{{ book.main_image.image.url }}" class="img-fluid"
+                         alt="{{ book.title }}"/>
+                </div>
+                <div class="col-md-7">
+                    <div class="border-bottom border-2">
+                        <h4 id="productPageTitle">{{ book.title }}</h4>
+                    </div>
+                    <div>
+                        {% if book.description %}
+                            <div id="artDescription" class="border-bottom border-2">
+                                <p>{{ book.description }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div id="productTechnicals">
+                        <h5>Technical Information:</h5>
+                        <p>Author: {{ book.author.full_name }}</p>
+                        {% if book.category%}
+                            <p>Category: {{ book.category.name }}</p>
+                        {% endif %}
+                        {% if book.subcategory %}
+                            <p>Genre: {{ book.subcategory.name }}</p>
+                        {% endif %}
+                        <p>Publisher: {{ book.publisher.name }}</p>
+                        <p>Cover: {{ book.cover }}</p>
+                        <p>Pages: {{ book.pages }}</p>
+                        <p>Year: {{ book.year }}</p>
+                        <p>Dimensions: {{ book.dimensions }}</p>
+                        <div id="productTechnicalsPrice">
+                            <p>${{ book.price|floatformat:2 }}</p>
+                            <button data-product="{{ book.isbn }}" data-action="add"
+                                    class="btn btn-success update-cart">
+                                <i class="fas fa-cart-arrow-down"></i> Add to cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

@@ -5,3 +5,4 @@ debug.log
 product.json
 *.pyc
 .idea/
+media/

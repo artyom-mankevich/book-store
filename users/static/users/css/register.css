@@ -1,0 +1,25 @@
+input:valid {
+    border-color: green;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+.requiredField {
+    font-weight: bold;
+}
+
+#divSignUpButton {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#div_id_profile_pic {
+    text-align: center;
+}
+
+#id_profile_pic {
+    text-align: center;
+}

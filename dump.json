@@ -1,0 +1,289 @@
+[
+  {
+    "model": "products.author",
+    "pk": 1,
+    "fields": {
+      "full_name": "Oscar Wilde",
+      "country": "Ireland",
+      "birth_date": "1854-10-16",
+      "death_date": "1900-11-30",
+      "description": "Oscar Fingal O'Flahertie Wills Wilde (16 October 1854 – 30 November 1900) was an Irish poet and playwright. After writing in different forms throughout the 1880s, he became one of the most popular playwrights in London in the early 1890s. He is best remembered for his epigrams and plays, his novel The Picture of Dorian Gray, and the circumstances of his criminal conviction for gross indecency for consensual homosexual acts in \"one of the first celebrity trials\", imprisonment, and early death from meningitis at age 46.",
+      "rating": null
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 1,
+    "fields": {
+      "name": "Fiction Classics"
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 1,
+    "fields": {
+      "name": "Classic Horror",
+      "category": 1
+    }
+  },
+  {
+    "model": "products.publisher",
+    "pk": 1,
+    "fields": {
+      "name": "Sahara Publisher Books",
+      "rating": null
+    }
+  },
+  {
+    "model": "products.book",
+    "pk": "2491704935",
+    "fields": {
+      "author": 1,
+      "category": 1,
+      "subcategory": 1,
+      "publisher": 1,
+      "title": "The Picture of Dorian Gray",
+      "cover": "H",
+      "dimensions": "15.24 x 1.42 x 22.86 cm",
+      "description": "Fearing the story was indecent, the magazine's editor deleted roughly five hundred words before publication without Wilde's knowledge. Despite that censorship, The Picture of Dorian Gray offended the moral sensibilities of British book reviewers, some of whom said that Oscar Wilde merited prosecution for violating the laws guarding public morality. In response, Wilde aggressively defended his novel and art in correspondence with the British press, although he personally made excisions of some of the most controversial material when revising and lengthening the story for book publication the following year.\r\n\r\nThe longer and revised version of The Picture of Dorian Gray published in book form in 1891 featured an aphoristic preface-a defence of the artist's rights and of art for art's sake-based in part on his press defences of the novel the previous year. The content, style, and presentation of the preface made it famous in its own right, as a literary and artistic manifesto. In April 1891, the publishing firm of Ward, Lock and Company, who had distributed the shorter, more inflammatory, magazine version in England the previous year, published the revised version of The Picture of Dorian Gray.",
+      "price": "9.0000",
+      "year": 1890,
+      "pages": 230,
+      "available_count": 1,
+      "rating": null
+    }
+  },
+  {
+    "model": "products.author",
+    "pk": 2,
+    "fields": {
+      "full_name": "Ernest Hemingway",
+      "country": "USA",
+      "birth_date": "1899-07-21",
+      "death_date": "1961-07-02",
+      "description": "Ernest Hemingway was born in 1899. His father was a doctor and he was the second of six children. Their home was at Oak Park, a Chicago suburb.\n\nIn 1917, Hemingway joined the Kansas City Star as a cub reporter. The following year, he volunteered as an ambulance driver on the Italian front, where he was badly wounded but decorated for his services. He returned to America in 1919, and married in 1921. In 1922, he reported on the Greco-Turkish war before resigning from journalism to devote himself to fiction. He settled in Paris where he renewed his earlier friendships with such fellow-American expatriates as Ezra Pound and Gertrude Stein. Their encouragement and criticism were to play a valuable part in the formation of his style.\n\nHemingway's first two published works were Three Stories and Ten Poems and In Our Time but it was the satirical novel, The Torrents of Spring, that established his name more widely. His international reputation was firmly secured by his next three books; Fiesta, Men Without Women and A Farewell to Arms.\n\nHe was passionately involved with bullfighting, big-game hunting and deep-sea fishing and his writing reflected this. He visited Spain during the Civil War and described his experiences in the bestseller, For Whom the Bell Tolls.\n\nHis direct and deceptively simple style of writing spawned generations of imitators but no equals. Recognition of his position in contemporary literature came in 1954 when he was awarded the Nobel Prize for Literature, following the publication of The Old Man and the Sea. He died in 1961.",
+      "rating": null
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 2,
+    "fields": {
+      "name": "War Story Fiction",
+      "category": 1
+    }
+  },
+  {
+    "model": "products.publisher",
+    "pk": 2,
+    "fields": {
+      "name": "Macmillan Collector's Library",
+      "rating": null
+    }
+  },
+  {
+    "model": "products.book",
+    "pk": "1909621412",
+    "fields": {
+      "author": 2,
+      "category": 1,
+      "subcategory": 2,
+      "publisher": 2,
+      "title": "A Farewell To Arms",
+      "cover": "H",
+      "dimensions": "10.1 x 2.3 x 15.6 cm",
+      "description": "Frederic Henry is an American Lieutenant serving in the ambulance corps of the Italian army during the First World War. While stationed in northern Italy, he falls in love with Catherine Barkley, an English nurse. Theirs is an intense, tender and passionate love affair overshadowed by the war. Ernest Hemingway spares nothing in his denunciation of the horrors of combat, yet vividly depicts the courage shown by so many.\n\nIn writing A Farewell to Arms, Hemingway was inspired by his own wartime experience as an ambulance driver for the Red Cross. First published in 1929, the novel made his name and remains one of his finest works.\n\nThis stunning edition features an afterword by Ned Halley.\n\nDesigned to appeal to the book lover, the Macmillan Collector's Library is a series of beautiful gift editions of much loved classic titles. Macmillan Collector's Library are books to love and treasure.",
+      "price": "10.9900",
+      "year": 2016,
+      "pages": 360,
+      "available_count": 28,
+      "rating": null
+    }
+  },
+  {
+    "model": "products.author",
+    "pk": 3,
+    "fields": {
+      "full_name": "Frances Evesham",
+      "country": "UK",
+      "birth_date": null,
+      "death_date": null,
+      "description": "Frances Evesham is the author of the hugely successful Exham-on-Sea mysteries\nset in her home county of Somerset. Boldwood has republished the complete series. Frances has also started a new cosy crime series set in rural Herefordshire, the first of which was published in June 2020.",
+      "rating": null
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 3,
+    "fields": {
+      "name": "Modern Fiction"
+    }
+  },
+  {
+    "model": "products.publisher",
+    "pk": 3,
+    "fields": {
+      "name": "Boldwood Books Ltd",
+      "rating": null
+    }
+  },
+  {
+    "model": "products.book",
+    "pk": "1802809791",
+    "fields": {
+      "author": 3,
+      "category": 2,
+      "subcategory": null,
+      "publisher": 3,
+      "title": "Murder at the Abbey",
+      "cover": "H",
+      "dimensions": "15.24 x 1.75 x 22.86 cm",
+      "description": "The Exham-on-Sea’s History Society's annual summer picnic comes to an abrupt end when human bones are discovered in Washford River, beside historic Cleeve Abbey.\nThrilled to find evidence of a possible centuries-old murder mystery, the members of the society organise a ghost-hunting night in the ruins of Cleeve Abbey, despite amateur sleuth Libby Forest's reservations.\nLibby is a woman of many talents, a baker, chocolatier, even a reluctant sleuth, but she's no fan of the supernatural.and her doubts are justified when a friend is attacked under cover of darkness at the ghost-hunt.\nDistressed and angry, Libby sets out with her new husband Max and their two dogs Bear and Shipley to uncover the connection between the murder of a sixteenth century monk and a present-day attack in picturesque Somerset.\nWith friends and neighbours as suspects, Libby and Max close in on the culprit only to find that others are still in danger.\nThere's no time to lose as the sins of the past threaten lives in the community.\n\nMurder at the Abbey is the eighth in a series of Exham-on-Sea Murder Mysteries from the small English seaside town full of quirky characters, sea air, and gossip.",
+      "price": "24.5600",
+      "year": 2021,
+      "pages": 228,
+      "available_count": 30,
+      "rating": null
+    }
+  },
+  {
+    "model": "products.author",
+    "pk": 4,
+    "fields": {
+      "full_name": "Agatha Christie",
+      "country": "UK",
+      "birth_date": "1890-09-15",
+      "death_date": "1976-01-12",
+      "description": "Agatha Christie is known throughout the world as the Queen of Crime. Her books have sold over a billion copies in English with another billion in over 70 foreign languages. She is the most widely published author of all time and in any language, outsold only by the Bible and Shakespeare. She is the author of 80 crime novels and short story collections, 20 plays, and six novels written under the name of Mary Westmacott.",
+      "rating": null
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 3,
+    "fields": {
+      "name": "Crime, Thrillers & Mystery",
+      "category": 1
+    }
+  },
+  {
+    "model": "products.publisher",
+    "pk": 4,
+    "fields": {
+      "name": "HarperCollins",
+      "rating": null
+    }
+  },
+  {
+    "model": "products.book",
+    "pk": "0007234449",
+    "fields": {
+      "author": 4,
+      "category": 1,
+      "subcategory": 2,
+      "publisher": 4,
+      "title": "Murder in Mesopotamia",
+      "cover": "H",
+      "dimensions": "12.6 x 2.8 x 19 cm",
+      "description": "\n\nA facsimile first edition hardback of the famous Poirot book, with a strange death in the desert.\n\nWhen Amy Leatheran travels to an ancient site in the Iraqi desert to nurse the wife of a celebrated archaeologist, events prove stranger than she has ever imagined. Her patient’s bizarre visions and nervous terror seem unfounded, but as the oppressive tension in the air thickens, events come to a terrible climax – in murder.\n\nWith one spot of blood as his only clue, Hercule Poirot must embark on a journey across the desert to unravel a mystery which taxes even his remarkable powers…\n\nTo mark the 80th anniversary of Hercule Poirot's first appearance, and to celebrate his renewed fortunes as a primetime television star, this title in a collection of facsimile first editions is the perfect way to experience Agatha Christie. Reproducing the original typesetting and format of the first edition from the Christie family's own archive, this book sports the original cover which has been painstakingly restored to its original glory.\n",
+      "price": "24.0000",
+      "year": 2007,
+      "pages": 288,
+      "available_count": 50,
+      "rating": null
+    }
+  },
+  {
+    "model": "products.author",
+    "pk": 5,
+    "fields": {
+      "full_name": "Harper Lee",
+      "country": "USA",
+      "birth_date": "1926-04-28",
+      "death_date": "2016-02-19",
+      "description": "Harper Lee was born in 1926 in Monroeville, Alabama. She attended Huntingdon College and studied law at the University of Alabama. She is the author of the acclaimed To Kill a Mockingbird, and was awarded the Pulitzer Prize, the Presidential Medal of Freedom and numerous other literary awards and honours. She died on 19 February 2016.",
+      "rating": null
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 4,
+    "fields": {
+      "name": "Contemporary Fiction",
+      "category": 1
+    }
+  },
+  {
+    "model": "products.publisher",
+    "pk": 5,
+    "fields": {
+      "name": "Arrow",
+      "rating": null
+    }
+  },
+  {
+    "model": "products.book",
+    "pk": "9780099549482",
+    "fields": {
+      "author": 5,
+      "category": 1,
+      "subcategory": 4,
+      "publisher": 5,
+      "title": "To Kill A Mockingbird",
+      "cover": "S",
+      "dimensions": "11 x 1.9 x 17.8 cm",
+      "description": "'Shoot all the Bluejays you want, if you can hit 'em, but remember it's a sin to kill a Mockingbird.'\n\nA lawyer's advice to his children as he defends the real mockingbird of Harper Lee's classic novel - a black man charged with the rape of a white girl. Through the young eyes of Scout and Jem Finch, Harper Lee explores with exuberant humour the irrationality of adult attitudes to race and class in the Deep South of the thirties. The conscience of a town steeped in prejudice, violence and hypocrisy is pricked by the stamina of one man's struggle for justice. But the weight of history will only tolerate so much.\n\nTo Kill a Mockingbird is a coming-of-age story, an anti-racist novel, a historical drama of the Great Depression and a sublime example of the Southern writing tradition. ",
+      "price": "6.5500",
+      "year": 2010,
+      "pages": 320,
+      "available_count": 44,
+      "rating": null
+    }
+  },
+  {
+    "model": "products.author",
+    "pk": 6,
+    "fields": {
+      "full_name": "David Goggins",
+      "country": "USA",
+      "birth_date": "1975-02-17",
+      "death_date": null,
+      "description": "David Goggins is a retired Navy SEAL and the only member of the U.S. Armed Forces ever to complete SEAL training, U.S. Army Ranger School, and Air Force Tactical Air Controller training. Goggins has competed in more than sixty ultra-marathons, triathlons, and ultra-triathlons, setting new course records and regularly placing in the top five. A former Guinness World Record holder for completing 4,030 pull-ups in seventeen hours, he's a much-sought-after public speaker who's shared his story with the staffs of Fortune 500 companies, professional sports teams, and hundreds of thousands of students across the country.",
+      "rating": null
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 2,
+    "fields": {
+      "name": "Spirituality"
+    }
+  },
+  {
+    "model": "products.publisher",
+    "pk": 6,
+    "fields": {
+      "name": "Lioncrest Publishing",
+      "rating": null
+    }
+  },
+  {
+    "model": "products.book",
+    "pk": "1544512279",
+    "fields": {
+      "author": 6,
+      "category": 2,
+      "subcategory": null,
+      "publisher": 6,
+      "title": "Can't Hurt Me: Master Your Mind and Defy the Odds",
+      "cover": "S",
+      "dimensions": "15.24 x 2.31 x 22.86 cm",
+      "description": "New York Times Bestseller\n\nOver 3 million copies sold\n\nFor David Goggins, childhood was a nightmare -- poverty, prejudice, and physical abuse colored his days and haunted his nights. But through self-discipline, mental toughness, and hard work, Goggins transformed himself from a depressed, overweight young man with no future into a U.S. Armed Forces icon and one of the world's top endurance athletes. The only man in history to complete elite training as a Navy SEAL, Army Ranger, and Air Force Tactical Air Controller, he went on to set records in numerous endurance events, inspiring Outside magazine to name him \"The Fittest (Real) Man in America.\"\n\nIn Can't Hurt Me, he shares his astonishing life story and reveals that most of us tap into only 40% of our capabilities. Goggins calls this The 40% Rule, and his story illuminates a path that anyone can follow to push past pain, demolish fear, and reach their full potential. ",
+      "price": "14.5200",
+      "year": 2018,
+      "pages": 364,
+      "available_count": 32,
+      "rating": null
+    }
+  }
+]

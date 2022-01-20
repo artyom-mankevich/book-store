@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block extra_head_content %}
+        {{ block.super }}
+        <title>All books</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'products/css/products.css' %}">
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+    <div class="container">
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+        <div class="row" id="productsRow">
+            {% if products %}
+                {% for p in page_obj %}
+                    <div class="col-md-3 border bg-light rounded p-1" id="product">
+                        <a href="{% url 'products:product by id' pk=p.isbn %}">
+                            <span class="link-spanner"></span>
+                        </a>
+                        <img src="{{ p.main_image.image.url }}"
+                             alt="{{ p.title }}" id="productImage"/>
+                        <div class="productText">
+                            <p id="productTitle">{{ p.title }}</p>
+                            <p>{{ p.author.full_name }}</p>
+                            <p id="productPrice">${{ p.price|floatformat:2 }}</p>
+                            {% if p.rating is not None %}
+                                <p>{{ p.rating }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No products are available</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>
