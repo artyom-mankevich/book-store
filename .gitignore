@@ -1,0 +1,7 @@
+store_project/.env
+.pytest_cache
+.mysql-data
+debug.log
+product.json
+*.pyc
+.idea/
