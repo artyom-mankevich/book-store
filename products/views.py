@@ -10,7 +10,8 @@ class ProductsView(generic.ListView):
     context_object_name = 'products'
 
     def get_queryset(self):
-        query_set = Book.objects.all()
+        query_set = Book.objects.select_related('author', 'category',
+                                                'subcategory', 'publisher').all()
 
         query_set = exact_filter(self, query_set, 'full_name', 'author')
         query_set = exact_filter(self, query_set, 'name', 'category')
@@ -28,3 +29,8 @@ class ProductsView(generic.ListView):
 class ProductByIdView(generic.DetailView):
     model = Book
     template_name = 'products/product.html'
+
+    def get_queryset(self):
+        query_set = Book.objects.select_related('author', 'category',
+                                                'subcategory', 'publisher').filter(isbn=self.kwargs['pk'])
+        return query_set
