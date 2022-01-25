@@ -1,18 +1,22 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 
-
-# Create your models here.
 from products.utils import book_directory_path
 
 
 class Author(models.Model):
     full_name = models.CharField(max_length=100)
-    country = models.CharField(max_length=100, verbose_name="Country that is associated with the author")
-    birth_date = models.DateField(null=True)
-    death_date = models.DateField(null=True)
-    description = models.TextField(null=True)
+    country = models.CharField(max_length=100, verbose_name="Country that is associated with the author", null=True,
+                               blank=True)
+    birth_date = models.DateField(null=True, blank=True)
+    death_date = models.DateField(null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
     rating = models.DecimalField(editable=False, max_digits=4, decimal_places=2, null=True)
+    slug = models.SlugField(unique=True)
+
+    def get_absolute_url(self):
+        return reverse('author_detail', kwargs={'slug': self.slug})
 
     def __str__(self):
         return ' '.join((str(self.id), self.full_name))
@@ -42,6 +46,10 @@ class Subcategory(models.Model):
 class Publisher(models.Model):
     name = models.CharField(max_length=100)
     rating = models.DecimalField(editable=False, max_digits=4, decimal_places=2, null=True)
+    slug = models.SlugField(unique=True)
+
+    def get_absolute_url(self):
+        return reverse('publisher_detail', kwargs={'slug': self.slug})
 
     def __str__(self):
         return ' '.join((str(self.id), self.name))
@@ -66,6 +74,7 @@ class Book(models.Model):
     main_image = models.ForeignKey(BookImage, on_delete=models.SET_NULL, null=True, related_name='+', blank=True)
 
     title = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True)
 
     HARD = 'H'
     SOFT = 'S'
@@ -84,6 +93,9 @@ class Book(models.Model):
     pages = models.SmallIntegerField()
     available_count = models.SmallIntegerField()
     rating = models.DecimalField(editable=False, max_digits=4, decimal_places=2, null=True)
+
+    def get_absolute_url(self):
+        return reverse('book_detail', kwargs={'slug': self.slug})
 
     def __str__(self):
         return ' '.join((self.isbn, self.title))

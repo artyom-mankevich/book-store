@@ -1,6 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
 from .models import Book, Category, Subcategory, Author, Publisher, BookImage
 
 
@@ -25,6 +24,7 @@ class SubcategoryInline(admin.TabularInline):
 class BookAdmin(admin.ModelAdmin):
     list_per_page = 50
     search_help_text = "You can search for ISBN, book's title and description or author's name"
+    prepopulated_fields = {'slug': ('title',)}
 
     fieldsets = (
         (None, {
@@ -37,6 +37,9 @@ class BookAdmin(admin.ModelAdmin):
             'fields': ['cover', 'dimensions',
                        'year', 'pages', 'available_count',
                        'description', ]}),
+        ('Other', {
+            'fields': ['slug',]
+        })
     )
     list_display = ('isbn', 'title', 'author', 'category',
                     'price', 'available_count', 'year', 'rating')
@@ -49,12 +52,16 @@ class BookAdmin(admin.ModelAdmin):
 
 class AuthorAdmin(admin.ModelAdmin):
     list_per_page = 50
+    prepopulated_fields = {'slug': ('full_name',)}
     fieldsets = (
         (None, {
             'fields': ['full_name', 'country', 'description']
         }),
         ('Lifetime', {
             'fields': ['birth_date', 'death_date'],
+        }),
+        ('Other', {
+            'fields': ['slug',]
         })
     )
     inlines = (BookInline,)
@@ -85,7 +92,8 @@ class SubcategoryAdmin(admin.ModelAdmin):
 
 
 class PublisherAdmin(admin.ModelAdmin):
-    fields = ('name',)
+    prepopulated_fields = {'slug': ('name',)}
+    fields = ('name', 'slug')
     list_display = ('id', 'name', 'rating')
     list_display_links = ('id', 'name')
     list_filter = ('rating', 'rating')
