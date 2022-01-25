@@ -32,7 +32,7 @@
             {% if products %}
                 {% for p in page_obj %}
                     <div class="col-md-3 border bg-light rounded p-1" id="product">
-                        <a href="{% url 'products:product by id' pk=p.isbn %}">
+                        <a href="{% url 'products:product detail' author=p.author.slug slug=p.slug %}">
                             <span class="link-spanner"></span>
                         </a>
                         <img src="{{ p.main_image.image.url }}"

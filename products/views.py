@@ -32,5 +32,6 @@ class ProductByIdView(generic.DetailView):
 
     def get_queryset(self):
         query_set = Book.objects.select_related('author', 'category',
-                                                'subcategory', 'publisher').filter(isbn=self.kwargs['pk'])
+                                                'subcategory', 'publisher').filter(slug=self.kwargs['slug'],
+                                                                                   author__slug=self.kwargs['author'])
         return query_set

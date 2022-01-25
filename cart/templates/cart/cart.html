@@ -40,7 +40,9 @@
                                  alt="{{ item.product.title }}">
                         </div>
                         <div style="flex:2">
-                            <a href="{% url 'products:product by id' pk=item.product.id %}">{{ item.product.title }}</a>
+                            <a href="{% url 'products:product detail' author=item.product.author.slug slug=item.product.slug %}">
+                                {{ item.product.title }}
+                            </a>
                         </div>
                         <div style="flex:1">
                             <p>${{ item.product.price|floatformat:2 }}</p>
