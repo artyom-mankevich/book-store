@@ -6,3 +6,4 @@ product.json
 *.pyc
 .idea/
 media/
+.coverage
