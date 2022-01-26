@@ -16,7 +16,7 @@ class Author(models.Model):
     slug = models.SlugField(unique=True)
 
     def get_absolute_url(self):
-        return reverse('author_detail', kwargs={'slug': self.slug})
+        return reverse('products:author details', kwargs={'slug': self.slug})
 
     def __str__(self):
         return ' '.join((str(self.id), self.full_name))
@@ -49,7 +49,7 @@ class Publisher(models.Model):
     slug = models.SlugField(unique=True)
 
     def get_absolute_url(self):
-        return reverse('publisher_detail', kwargs={'slug': self.slug})
+        return reverse('products:publisher details', kwargs={'slug': self.slug})
 
     def __str__(self):
         return ' '.join((str(self.id), self.name))
@@ -95,7 +95,7 @@ class Book(models.Model):
     rating = models.DecimalField(editable=False, max_digits=4, decimal_places=2, null=True)
 
     def get_absolute_url(self):
-        return reverse('book_detail', kwargs={'slug': self.slug})
+        return reverse('products:product details', kwargs={'author': self.author.slug, 'slug': self.slug})
 
     def __str__(self):
         return ' '.join((self.isbn, self.title))
