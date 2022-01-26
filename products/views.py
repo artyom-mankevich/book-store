@@ -26,7 +26,7 @@ class ProductsView(generic.ListView):
         return query_set
 
 
-class ProductByIdView(generic.DetailView):
+class ProductDetails(generic.DetailView):
     model = Book
     template_name = 'products/product.html'
 
@@ -35,3 +35,11 @@ class ProductByIdView(generic.DetailView):
                                                 'subcategory', 'publisher').filter(slug=self.kwargs['slug'],
                                                                                    author__slug=self.kwargs['author'])
         return query_set
+
+
+class AuthorDetails(generic.DetailView):
+    pass
+
+
+class PublisherDetails(generic.DetailView):
+    pass

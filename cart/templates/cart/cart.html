@@ -40,7 +40,7 @@
                                  alt="{{ item.product.title }}">
                         </div>
                         <div style="flex:2">
-                            <a href="{% url 'products:product detail' author=item.product.author.slug slug=item.product.slug %}">
+                            <a href="{% url 'products:product details' author=item.product.author.slug slug=item.product.slug %}">
                                 {{ item.product.title }}
                             </a>
                         </div>
