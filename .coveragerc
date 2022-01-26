@@ -1,5 +1,7 @@
 [run]
 
-omit = */tests/*
-       */migrations/*
-       */store_project/
+omit = **/tests/*
+       **/migrations/*
+       store_project/
+       Docker/
+       media/
