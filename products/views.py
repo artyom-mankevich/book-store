@@ -31,9 +31,13 @@ class ProductDetails(generic.DetailView):
     template_name = 'products/product.html'
 
     def get_queryset(self):
-        query_set = Book.objects.select_related('author', 'category',
-                                                'subcategory', 'publisher').filter(slug=self.kwargs['slug'],
-                                                                                   author__slug=self.kwargs['author'])
+        query_set = Book.objects \
+            .select_related('author',
+                            'category',
+                            'subcategory',
+                            'publisher') \
+            .filter(slug=self.kwargs['slug'],
+                    author__slug=self.kwargs['author'])
         return query_set
 
 
