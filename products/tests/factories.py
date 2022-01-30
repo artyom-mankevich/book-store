@@ -1,6 +1,9 @@
 import factory
+from faker import Faker
 
 from products.models import Book, Author, Category, Subcategory, Publisher
+
+FAKE = Faker('en_US')
 
 
 def create_slug(title: str):
@@ -11,8 +14,8 @@ class AuthorFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Author
 
-    full_name = factory.Faker('name')
-    slug = 'some_test_slug'
+    full_name = FAKE.name()
+    slug = create_slug(full_name)
 
 
 class CategoryFactory(factory.django.DjangoModelFactory):
@@ -34,8 +37,8 @@ class PublisherFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Publisher
 
-    name = factory.Faker('name')
-    slug = 'test_slug'
+    name = FAKE.company()
+    slug = create_slug(name)
 
 
 class BookFactory(factory.django.DjangoModelFactory):
@@ -49,9 +52,9 @@ class BookFactory(factory.django.DjangoModelFactory):
     subcategory = factory.SubFactory(SubcategoryFactory)
     publisher = factory.SubFactory(PublisherFactory)
 
-    title = "Test title"
+    title = FAKE.name()
     price = 12
-    slug = 'test_title'
+    slug = create_slug(title)
     cover = "H"
     year = 1890
     pages = 230

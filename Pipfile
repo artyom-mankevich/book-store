@@ -16,6 +16,7 @@ django-debug-toolbar = "*"
 django-factory-boy = "*"
 factory-boy = "*"
 coverage = "*"
+faker = "*"
 
 [requires]
 python_version = "3.9"
