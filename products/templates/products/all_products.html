@@ -13,21 +13,6 @@
 <body>
 {% block content %}
     <div class="container">
-        <div class="pagination">
-            <span class="step-links">
-                {% if page_obj.has_previous %}
-                    <a href="?page=1">&laquo; first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                {% endif %}
-                <span class="current">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                </span>
-                {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-                {% endif %}
-            </span>
-        </div>
         <div class="row" id="productsRow">
             {% if products %}
                 {% for p in page_obj %}
@@ -46,11 +31,47 @@
                             {% endif %}
                         </div>
                     </div>
+                {% empty %}
+                    <h1>Sorry, no books are available</h1>
                 {% endfor %}
             {% else %}
                 <p>No products are available</p>
             {% endif %}
         </div>
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+                <li class="page-item textLink">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled textLink">
+                    <span class="page-link">Previous</span>
+                </li>
+            {% endif %}
+            {% for i in paginator.page_range %}
+                {% if i == page_obj.number %}
+                    <li class="page-item active">
+                        <span class="page-link">
+                            {{ i }}
+                            <span class="sr-only">(current)</span>
+                        </span>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <li class="page-item textLink">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled textLink">
+                    <span class="page-link">Next</span>
+                </li>
+            {% endif %}
+        </ul>
     </div>
 {% endblock %}
 </body>

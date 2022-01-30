@@ -83,3 +83,13 @@
     margin-bottom: .5rem;
     margin-top: .5rem;
 }
+
+.pagination {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.textLink {
+    width: 6rem;
+    text-align: center;
+}
