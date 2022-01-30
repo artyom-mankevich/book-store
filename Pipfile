@@ -17,6 +17,7 @@ django-factory-boy = "*"
 factory-boy = "*"
 coverage = "*"
 faker = "*"
+parameterized = "*"
 
 [requires]
 python_version = "3.9"
