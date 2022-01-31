@@ -25,6 +25,7 @@ def register(request):
 
 
 def check_username(request):
+    """Checking if username is taken via HTMX"""
     username = request.POST.get('username')
     if not re.match("^[a-z0-9_]{3,30}$", username):
         return HttpResponse("<div id='username-errors'></div>")

@@ -27,13 +27,13 @@ class CustomUserCreationForm(UserCreationForm):
     def clean_first_name(self):
         data = self.cleaned_data.get('first_name')
         if data and not re.match("^[A-Z][a-z]+$", data):
-            raise ValidationError("First title is invalid")
+            raise ValidationError("First name is invalid")
         return data
 
     def clean_last_name(self):
         data = self.cleaned_data.get('last_name')
         if data and not re.match("^[A-Z][a-z]+$", data):
-            raise ValidationError("Last title is invalid")
+            raise ValidationError("Last name is invalid")
         return data
 
     def clean_profile_pic(self):
