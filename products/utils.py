@@ -57,5 +57,10 @@ def order_by_query(view: View, query_set: QuerySet):
 
 
 def book_directory_path(instance, filename):
-    """Returns MEDIA_ROOT/uploads/user_username/filename"""
+    """Returns MEDIA_ROOT/books/book.isbn/filename"""
     return 'books/{0}/{1}'.format(instance.book.isbn, filename)
+
+
+def author_directory_path(instance, filename):
+    """Returns MEDIA_ROOT/authors/author.slug/filename"""
+    return 'authors/{0}/{1}'.format(instance.slug, filename)

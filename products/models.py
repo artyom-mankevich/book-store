@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 
-from products.utils import book_directory_path
+from .utils import book_directory_path, author_directory_path
 
 
 class Author(models.Model):
@@ -14,6 +14,7 @@ class Author(models.Model):
     description = models.TextField(null=True, blank=True)
     rating = models.DecimalField(editable=False, max_digits=4, decimal_places=2, null=True)
     slug = models.SlugField(unique=True)
+    image = models.ImageField(upload_to=author_directory_path, default='authors/default.png', null=True, blank=True)
 
     def get_absolute_url(self):
         return reverse('products:author details', kwargs={'slug': self.slug})
@@ -57,7 +58,7 @@ class Publisher(models.Model):
 
 class BookImage(models.Model):
     book = models.ForeignKey('Book', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to=book_directory_path)
+    image = models.ImageField(upload_to=book_directory_path, default='books/default.png')
 
     def __str__(self):
         return ' '.join((str(self.id), self.book.title))

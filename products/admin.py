@@ -38,7 +38,7 @@ class BookAdmin(admin.ModelAdmin):
                        'year', 'pages', 'available_count',
                        'description', ]}),
         ('Other', {
-            'fields': ['slug',]
+            'fields': ['slug', ]
         })
     )
     list_display = ('isbn', 'title', 'author', 'category',
@@ -55,7 +55,7 @@ class AuthorAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('full_name',)}
     fieldsets = (
         (None, {
-            'fields': ['full_name', 'country', 'description']
+            'fields': ['full_name', 'country', 'description', 'image']
         }),
         ('Lifetime', {
             'fields': ['birth_date', 'death_date'],
