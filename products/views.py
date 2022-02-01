@@ -1,6 +1,7 @@
+from django.shortcuts import render
 from django.views import generic
 
-from .models import Book
+from .models import Book, Author
 from .utils import exact_filter, range_filter, order_by_query
 
 
@@ -42,7 +43,20 @@ class ProductDetails(generic.DetailView):
 
 
 class AuthorDetails(generic.DetailView):
-    pass
+    model = Author
+    template_name = 'products/author.html'
+
+    def get(self, request, *args, **kwargs):
+        author = Author.objects.get(slug=self.kwargs['slug'])
+        author_books = Book.objects.filter(author=author).order_by('-year')[:5]
+        author_categories: list = []
+        for book in author_books:
+            author_categories.append(book.category)
+        return render(request, 'products/author.html', context={
+            'author': author,
+            'author_books': author_books,
+            'author_categories': author_categories
+        })
 
 
 class PublisherDetails(generic.DetailView):

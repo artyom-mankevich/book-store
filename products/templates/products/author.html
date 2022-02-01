@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block extra_head_content %}
+        {{ block.super }}
+        <title>{{ author.full_name }}</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'products/css/products.css' %}">
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+    <div class="col-md-10 offset-1">
+        <div class="border bg-light rounded p-1 detailsPage">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="{{ author.image.url }}" class="img-fluid"
+                         alt="{{ author.full_name }}"/>
+                </div>
+                <div class="col-md-7">
+                    <div class="border-bottom border-2">
+                        <h4 class="detailsPageTitle">{{ author.full_name }}</h4>
+                    </div>
+                    <div style="margin-top: .5rem">
+                        <p>{{ author.description }}</p>
+                    </div>
+                    <div id="authorInfo" class="border-top">
+                        <p>Country: {{ author.country }}</p>
+                        {% if author.birth_date or author.death_date %}
+                            <p>Lifetime: {{ author.birth_date|default:"?" }} - {{ author.birth_date|default:"?" }}</p>
+                        {% endif %}
+                        {% if author.rating %}
+                            <p>Rating: {{ author.rating|floatformat:2 }}</p>
+                        {% endif %}
+                        {% if author_categories.count > 0 %}
+                            <div id="authorCategories">
+                                <p>Categories:</p>
+                                {% for category in author_categories %}
+                                    <p>{{ category }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div id="authorBooks" class="border-top">
+                        <h5>Author's books:</h5>
+                        <div class="booksSection">
+                            {% for b in author_books %}
+                                <div class="bookItem">
+                                    <img src="{{ b.main_image.image.url }}" alt="{{ b.title }}"/>
+                                    <a href="{% url 'products:product details' author=author.slug slug=b.slug %}">{{ b.title }}</a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <a href="{% url 'products:products' %}?author={{ author.full_name }}">View all author's books</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>
