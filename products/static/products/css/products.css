@@ -43,12 +43,13 @@
     font-size: 1.1em;
 }
 
-#productPage {
+.detailsPage {
     margin-top: .5em;
     position: relative;
+    margin-bottom: 1.5em;
 }
 
-#productPageTitle {
+.detailsPageTitle {
     text-align: center;
     margin-bottom: .5rem;
     margin-top: .5rem;
@@ -92,4 +93,45 @@
 .textLink {
     width: 6rem;
     text-align: center;
+}
+
+/* author.html */
+
+#authorInfo {
+    padding-top: .5rem;
+}
+
+#authorInfo > p {
+    margin-bottom: 0;
+}
+
+#authorBooks {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    padding-top: .5rem;
+    text-align: center;
+}
+
+.booksSection {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 8px;
+}
+
+.bookItem {
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+.bookItem > a {
+    text-decoration: none;
+}
+
+.bookItem > img {
+    max-height: 150px;
+    max-width: 150px;
+    flex-grow: 0;
 }

@@ -8,18 +8,19 @@
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'store/css/store.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'store/img/favicon.png' %}">
     {% block extra_head_content %} {% endblock %}
 </head>
 <body>
 <header class="container-fluid">
     <nav class="navbar navbar-dark bg-dark navbar-expand-md">
         <h1 class="navbar-brand">
-            <i class="fas fa-book"></i> Book Store
+            <i><img id="navbarIcon" src="{% static 'store/img/favicon.png' %}" alt="Book icon"/></i> Book Store
         </h1>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#theMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div id="theMenu" class="navbar-collapse collapse">
+        <div id="theMenu" class="navbar-collapse collapse align-items-center">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'store:index' %}">Home</a>

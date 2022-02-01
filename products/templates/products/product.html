@@ -13,7 +13,7 @@
 <body>
 {% block content %}
     <div class="col-md-8 offset-2">
-        <div class="border bg-light rounded p-1" id="productPage">
+        <div class="border bg-light rounded p-1 detailsPage">
             <div class="row">
                 <div class="col-md-5">
                     <img src="{{ book.main_image.image.url }}" class="img-fluid"
@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-md-7">
                     <div class="border-bottom border-2">
-                        <h4 id="productPageTitle">{{ book.title }}</h4>
+                        <h4 class="detailsPageTitle">{{ book.title }}</h4>
                     </div>
                     <div>
                         {% if book.description %}
